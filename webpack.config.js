@@ -5,8 +5,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  mode: "production",
-  // devtool: "source-map",
+  mode: "development",
+  devtool: "inline-source-map",
   entry: {
     popup: './src/popup.jsx',
     devtools: './src/devtools.jsx',
