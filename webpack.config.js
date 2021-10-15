@@ -5,11 +5,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  mode: "production",
-  // devtool: "source-map",
+  mode: "development",
+  devtool: "inline-source-map",
   entry: {
     popup: './src/popup.jsx',
-    devtools: './src/devtools.jsx',
+    panel: './src/panel/panel.jsx',
+    devtools: './src/devtools.js',
     content: './src/content.js',
     background: './src/background.js',
   },
@@ -69,6 +70,12 @@ module.exports = {
       inject: true,
       chunks: ['devtools'],
       filename: 'devtools.html',
+      template: './src/template.html'
+    }),
+    new HtmlWebpackPlugin({
+      inject: true,
+      chunks: ['panel'],
+      filename: 'panel.html',
       template: './src/template.html'
     }),
     // copy extension manifest and icons

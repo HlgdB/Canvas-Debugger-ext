@@ -18,6 +18,8 @@ const Index = () => {
     return () => {};
   }, [1]);
 
+  console.log("test source-map!")
+
   chrome.runtime.onMessage.addListener((message) => {
     const { canvas_count } = message;
     if(canvas_count !== undefined) {
